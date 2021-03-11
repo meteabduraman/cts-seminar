@@ -33,5 +33,5 @@ public class EmployeeReader extends Reader {
 		input2.close();
 		return angajati;
 	}
-	
+
 }

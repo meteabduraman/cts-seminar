@@ -10,7 +10,7 @@ import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Student;
 
 public class StudentReader extends Reader {
-	
+
 	public StudentReader(String filename) {
 		super(filename);
 		// TODO Auto-generated constructor stub
