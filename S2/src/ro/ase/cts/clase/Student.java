@@ -27,6 +27,15 @@ public class Student extends Aplicant {
 		super();
 
 	}
+	
+
+	public static void setFinantare(float sumaFinantata) {
+		Student.sumaFinantata = sumaFinantata;
+	}
+	
+	public static float getFinantare() {
+		return Student.sumaFinantata;
+	}
 
 	public Student(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect,
 			String facultate, int an_studii) {

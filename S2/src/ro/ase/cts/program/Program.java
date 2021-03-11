@@ -5,6 +5,7 @@ import java.util.List;
 
 import ro.ase.cts.clase.Angajat;
 import ro.ase.cts.clase.Aplicant;
+import ro.ase.cts.clase.Elev;
 import ro.ase.cts.clase.UniversalReader;
 import ro.ase.cts.clase.readers.EmployeeReader;
 import ro.ase.cts.clase.readers.StudentReader;
@@ -12,6 +13,7 @@ import ro.ase.cts.clase.readers.StudentReader;
 public class Program {
 
 	public static void main(String[] args) {
+		System.out.println(Elev.getFinantare());
 		List<Aplicant> listaAplicanti;
 		try {
 			listaAplicanti = UniversalReader.readAplicants(new EmployeeReader("angajati.txt"));

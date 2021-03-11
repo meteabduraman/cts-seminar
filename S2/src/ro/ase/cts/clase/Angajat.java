@@ -34,6 +34,14 @@ public class Angajat extends Aplicant {
 		super();
 
 	}
+	
+	public static void setFinantare(float sumaFinantata) {
+		Angajat.sumaFinantata = sumaFinantata;
+	}
+	
+	public static float getFinantare() {
+		return Angajat.sumaFinantata;
+	}
 
 	@Override
 	public String toString() {
