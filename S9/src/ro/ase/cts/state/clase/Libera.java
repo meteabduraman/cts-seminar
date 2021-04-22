@@ -1,0 +1,17 @@
+package ro.ase.cts.state.clase;
+
+public class Libera implements Stare {
+
+	@Override
+	public void schimbaStarea(Masa masa) {
+
+		if (!(masa.getStare() instanceof Libera)) {
+			System.out.println("Masa " + masa.getNumar() + " a fost eliberata");
+			masa.setStare(this);
+		} else {
+			System.out.println("Masa " + masa.getNumar() + " nu poate fi eliberata");
+		}
+
+	}
+
+}
