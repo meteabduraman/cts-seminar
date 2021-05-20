@@ -51,4 +51,43 @@ public class StudentTests {
 		student.adaugaNota(nota);
 		assertEquals(nota, student.getNota(0));
 	}
+	
+	@Test
+	public void testCalculeazaMedie() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+		assertEquals(6, student.calculeazaMedie(), 0.01);
+	}
+	
+	@Test
+	public void testCalculeazaMedieFaraNote() {
+		Student student = new Student();
+		assertEquals(0, student.calculeazaMedie(), 0.01);
+	}
+	
+	@Test
+	public void testCalculeazaMedieONota() {
+		int nota = 8;
+		Student student = new Student();
+		student.adaugaNota(nota);
+		assertEquals(nota, student.calculeazaMedie(), 0.01);
+	}
+	
+	@Test
+	public void testNotaAdaugataValida() {
+		Student student = new Student();
+		int nota = 15;
+		try {
+			student.adaugaNota(nota);
+			fail("Nu trebuia sa ajunga aici");
+		} catch (IllegalArgumentException err) {}
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testNotaValidaJUNIT4() {
+		Student student = new Student();
+		int nota = 14;
+		student.adaugaNota(nota);
+	}
 }
