@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import clase.Grupa;
+import clase.Student;
 
 public class TestGrupa {
 	
@@ -51,4 +52,61 @@ public class TestGrupa {
 		Grupa grupa = new Grupa(1078);
 		assertNotNull(grupa.getStudenti());
 	}
+	
+	// getPromovabilitate()
+	// Right-BICEP
+	
+	@Test
+	public void testGetPromovabilitateRight() {
+		Grupa grupa = new Grupa(1076);
+		for (int i=0; i<6; i++) {
+			Student student = new Student();
+			student.adaugaNota(6);
+			student.adaugaNota(2);
+			student.adaugaNota(7);
+			grupa.adaugaStudent(student);
+		}
+		for (int i=0; i<4; i++) {
+			Student student = new Student();
+			student.adaugaNota(9);
+			student.adaugaNota(10);
+			student.adaugaNota(7);
+			grupa.adaugaStudent(student);
+		}
+		assertEquals(0.4, grupa.getPromovabilitate(), 0.01);
+	}
+	
+	@Test
+	public void testGetPromovabilitateLowerBoundary() {
+		Grupa grupa = new Grupa(1076);
+		for (int i=0; i<6; i++) {
+			Student student = new Student();
+			student.adaugaNota(5);
+			student.adaugaNota(5);
+			student.adaugaNota(3);
+			grupa.adaugaStudent(student);
+		}
+		assertEquals(0, grupa.getPromovabilitate(), 0.01);
+	}
+	
+	@Test
+	public void testGetPromovabilitateUpperBoundary() {
+		Grupa grupa = new Grupa(1076);
+		for (int i=0; i<6; i++) {
+			Student student = new Student();
+			student.adaugaNota(9);
+			student.adaugaNota(9);
+			student.adaugaNota(10);
+			grupa.adaugaStudent(student);
+		}
+		assertEquals(1, grupa.getPromovabilitate(), 0.01);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testGetPromovabilitateError() {
+		Grupa grupa = new Grupa(1075);
+		grupa.getPromovabilitate();
+	}
+	
+
 }
