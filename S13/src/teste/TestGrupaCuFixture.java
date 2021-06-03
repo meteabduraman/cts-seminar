@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import categorii.TesteGetPromovabilitate;
 import clase.Grupa;
 import clase.Student;
 
@@ -30,6 +32,7 @@ public class TestGrupaCuFixture {
 	}
 
 	@Test(timeout=500)
+	@Category(TesteGetPromovabilitate.class)
 	public void testGetPromovabilitatePerformance() {
 		grupa.getPromovabilitate();
 	}
